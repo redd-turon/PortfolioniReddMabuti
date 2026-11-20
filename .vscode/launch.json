@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Chrome",
+            "type": "pwa-chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/index.html",
+            "userDataDir": "${workspaceFolder}/.vscode/debug-profile"
+        },
+        {
+            "name": "Launch Edge",
+            "type": "pwa-msedge",
+            "request": "launch",
+            "file": "${workspaceFolder}/index.html",
+            "userDataDir": "${workspaceFolder}/.vscode/debug-profile"
+        }
+    ]
+}

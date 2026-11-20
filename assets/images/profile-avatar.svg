@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="skinGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa" />
+      <stop offset="100%" stop-color="#fdba74" />
+    </linearGradient>
+    <linearGradient id="shirtGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Background Card -->
+  <rect width="400" height="450" rx="24" fill="#f8fafc" />
+  <circle cx="200" cy="190" r="140" fill="url(#bgGradient)" opacity="0.12" />
+  
+  <!-- Subtle Coding Glyphs in Background -->
+  <text x="45" y="80" font-family="monospace" font-size="22" fill="#4f46e5" opacity="0.3">&lt;/&gt;</text>
+  <text x="320" y="110" font-family="monospace" font-size="20" fill="#06b6d4" opacity="0.4">{ ; }</text>
+  <text x="50" y="380" font-family="monospace" font-size="18" fill="#4f46e5" opacity="0.25">const dev = true;</text>
+
+  <!-- Developer Avatar Character -->
+  <g filter="url(#shadow)">
+    <!-- Shoulders & Torso -->
+    <path d="M100 450 C100 340 130 310 200 310 C270 310 300 340 300 450 Z" fill="url(#shirtGradient)" />
+    <!-- Modern Collar Accent -->
+    <path d="M165 310 L200 350 L235 310 Z" fill="#334155" />
+    <path d="M185 310 L200 335 L215 310 Z" fill="url(#skinGradient)" />
+
+    <!-- Neck -->
+    <rect x="180" y="240" width="40" height="80" rx="8" fill="url(#skinGradient)" />
+
+    <!-- Head & Face -->
+    <ellipse cx="200" cy="195" rx="55" ry="68" fill="url(#skinGradient)" />
+    
+    <!-- Hair -->
+    <path d="M140 185 C140 115 160 110 200 110 C240 110 260 115 260 185 C250 140 240 135 200 135 C160 135 150 140 140 185 Z" fill="#1e1b4b" />
+    <path d="M142 165 C132 175 132 195 142 205 C144 190 144 180 142 165 Z" fill="#1e1b4b" />
+    <path d="M258 165 C268 175 268 195 258 205 C256 190 256 180 258 165 Z" fill="#1e1b4b" />
+
+    <!-- Glasses (Tech Style) -->
+    <rect x="155" y="180" width="38" height="26" rx="6" fill="none" stroke="#0f172a" stroke-width="4" />
+    <rect x="207" y="180" width="38" height="26" rx="6" fill="none" stroke="#0f172a" stroke-width="4" />
+    <line x1="193" y1="192" x2="207" y2="192" stroke="#0f172a" stroke-width="4" />
+    <!-- Eyes behind glasses -->
+    <circle cx="174" cy="193" r="4" fill="#0f172a" />
+    <circle cx="226" cy="193" r="4" fill="#0f172a" />
+
+    <!-- Smile -->
+    <path d="M185 228 Q200 240 215 228" fill="none" stroke="#ea580c" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- Laptop Foreground Peek -->
+  <rect x="130" y="415" width="140" height="35" rx="8" fill="#475569" />
+  <rect x="188" y="423" width="24" height="4" rx="2" fill="#94a3b8" />
+</svg>

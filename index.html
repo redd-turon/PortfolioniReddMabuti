@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal online portfolio of Jhared Pantilo Mabuti — 1st Year IT Student at Mindoro State University, Calapan Campus.">
+  <title>Jhared Pantilo Mabuti | Personal Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&display=swap" rel="stylesheet">
+
+  <!-- External Stylesheet (Checks css/style.css) -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       HEADER & NAVIGATION
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="Jhared Pantilo Mabuti Home">
+        <span class="logo-icon">JM</span>
+        <span>Jhared Mabuti</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       MAIN CONTENT: HOMEPAGE
+       ========================================================================= -->
+  <main>
+    <!-- HERO SECTION -->
+    <section class="section hero-section" aria-labelledby="hero-heading">
+      <div class="container hero">
+        
+        <!-- Left Column: Simple & Clear Introduction -->
+        <div class="hero-content">
+          <span class="hero-tag">☕ Welcome to my portfolio</span>
+          <h1 id="hero-heading" class="hero-title">
+            Hi, I'm <span class="highlight">Jhared Mabuti</span>
+          </h1>
+          <p class="hero-subtitle">
+            1st Year IT Student &bull; Mindoro State University, Calapan Campus
+          </p>
+          <p class="hero-bio">
+            I am a 1st-year college student from Oriental Mindoro studying Information Technology. 
+            I enjoy building simple, clean, and mobile-friendly websites using HTML5 and CSS3.
+          </p>
+          
+          <div class="hero-actions">
+            <a href="portfolio.html" class="btn btn-primary">
+              <span>View My Work</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <a href="contact.html" class="btn btn-secondary">
+              <span>Contact Me</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Profile Photo Card -->
+        <div class="hero-image-wrapper">
+          <div class="profile-card">
+            <img 
+              src="assets/images/jhared-mabuti.jpg" 
+              alt="Portrait of Jhared Pantilo Mabuti" 
+              class="profile-img"
+              width="320" 
+              height="420"
+            >
+            <div class="experience-badge" aria-label="Status: 1st Year IT Student based in Oriental Mindoro">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              <span>Oriental Mindoro<br><strong>BSIT &bull; 1st Year MinSU</strong></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WHAT I DO / CORE SKILLS -->
+    <section class="section" aria-labelledby="skills-heading" style="background: linear-gradient(180deg, var(--bg-surface) 0%, rgba(18, 11, 14, 0.95) 100%); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="subtitle">What I Learn &amp; Do</span>
+          <h2 id="skills-heading">My Skills &amp; Focus</h2>
+          <p>Here are the key areas I focus on as an Information Technology student.</p>
+        </div>
+
+        <div class="features-grid">
+          
+          <!-- Card 1 -->
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">🎓</div>
+            <h3>IT Fundamentals</h3>
+            <p>
+              Learning core computer concepts, hardware, software, and problem-solving at Mindoro State University.
+            </p>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">&lt;/&gt;</div>
+            <h3>HTML5 &amp; CSS3</h3>
+            <p>
+              Writing neat, organized code and creating responsive web pages that look great on both phones and computers.
+            </p>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">✨</div>
+            <h3>Clean Web Design</h3>
+            <p>
+              Designing modern, cozy, and easy-to-read web layouts with pleasant colors, fonts, and smooth hover effects.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL-TO-ACTION BANNER -->
+    <section class="section" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="contact-form-wrapper" style="text-align: center; max-width: 820px; margin: 0 auto;">
+          <span class="subtitle" style="margin-bottom: 0.75rem;">Get In Touch</span>
+          <h2 id="cta-heading" style="font-size: 2rem; margin-bottom: 0.75rem;">Want to work or study together?</h2>
+          <p style="margin-bottom: 1.75rem; max-width: 580px; margin-left: auto; margin-right: auto;">
+            Feel free to reach out for school projects, group activities, or just to say hello!
+          </p>
+          <a href="contact.html" class="btn btn-primary">Send a Message &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       SITE FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p class="footer-copyright">
+        &copy; 2026 Jhared Pantilo Mabuti &bull; BSIT 1st Year, Mindoro State University Calapan Campus.
+      </p>
+      <ul class="footer-links">
+        <li><a href="index.html" class="footer-link">Home</a></li>
+        <li><a href="about.html" class="footer-link">About</a></li>
+        <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+        <li><a href="contact.html" class="footer-link">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

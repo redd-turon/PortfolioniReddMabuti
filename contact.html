@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Jhared Pantilo Mabuti — 1st Year BSIT Student at Mindoro State University, Calapan Campus.">
+  <title>Contact | Jhared Pantilo Mabuti</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       HEADER & NAVIGATION
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="Jhared Pantilo Mabuti Home">
+        <span class="logo-icon">JM</span>
+        <span>Jhared Mabuti</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       MAIN CONTENT: CONTACT
+       ========================================================================= -->
+  <main>
+    <!-- PAGE TITLE BANNER -->
+    <section class="section" style="padding-bottom: 0;">
+      <div class="container">
+        <div class="section-header">
+          <span class="subtitle">Get In Touch</span>
+          <h1>Contact Me</h1>
+          <p>
+            Have a question or want to collaborate on a school project? Reach out anytime!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT DETAILS & FORM SECTION -->
+    <section class="section" style="padding-top: var(--spacing-md);" aria-labelledby="contact-heading">
+      <div class="container">
+        <h2 id="contact-heading" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">
+          Contact Information and Message Form
+        </h2>
+
+        <div class="contact-layout">
+          
+          <!-- LEFT COLUMN: Contact Information Cards -->
+          <div class="contact-info-panel">
+            
+            <!-- Email Card -->
+            <div class="contact-info-card">
+              <div class="contact-icon" aria-hidden="true">✉️</div>
+              <div class="contact-card-content">
+                <h4>Email Address</h4>
+                <p>Send me an email:</p>
+                <p>
+                  <a href="mailto:jamesjharedmabuti@gmail.com" style="font-weight: 600; color: var(--accent-gold);">
+                    jamesjharedmabuti@gmail.com
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <!-- Phone Card -->
+            <div class="contact-info-card">
+              <div class="contact-icon" aria-hidden="true">📞</div>
+              <div class="contact-card-content">
+                <h4>Mobile Number</h4>
+                <p>Call or text:</p>
+                <p>
+                  <a href="tel:09468417036" style="font-weight: 600; color: var(--accent-gold);">
+                    0946 841 7036
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <!-- Location Card -->
+            <div class="contact-info-card">
+              <div class="contact-icon" aria-hidden="true">📍</div>
+              <div class="contact-card-content">
+                <h4>Location &amp; School</h4>
+                <p>Home Province:</p>
+                <p style="font-weight: 600; color: var(--text-main);">
+                  Oriental Mindoro, Philippines
+                </p>
+                <p style="font-size: 0.85rem; color: var(--accent-gold); margin-top: 0.25rem;">
+                  Mindoro State University (MinSU) &bull; Calapan Campus
+                </p>
+              </div>
+            </div>
+
+            <!-- Student Note Card -->
+            <div class="contact-info-card">
+              <div class="contact-icon" aria-hidden="true">☕</div>
+              <div class="contact-card-content">
+                <h4>Student Status</h4>
+                <p style="font-weight: 600; color: var(--text-main);">
+                  1st Year BSIT Student
+                </p>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                  Always open for group activities, study sessions, and tech chats.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT COLUMN: Contact Form -->
+          <div class="contact-form-wrapper">
+            <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 0.5rem;">Send a Message</h3>
+            <p style="margin-bottom: 1.5rem;">
+              Fill in your message below and I will reply as soon as I can.
+            </p>
+
+            <form action="#" method="POST" aria-label="Jhared Mabuti Contact Form">
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="full-name" class="form-label">Your Name <span style="color: var(--accent-gold);">*</span></label>
+                  <input 
+                    type="text" 
+                    id="full-name" 
+                    name="name" 
+                    class="form-input" 
+                    placeholder="e.g. Maria Santos" 
+                    required 
+                    autocomplete="name"
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label for="email-address" class="form-label">Your Email <span style="color: var(--accent-gold);">*</span></label>
+                  <input 
+                    type="email" 
+                    id="email-address" 
+                    name="email" 
+                    class="form-input" 
+                    placeholder="name@example.com" 
+                    required 
+                    autocomplete="email"
+                  >
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message-subject" class="form-label">Subject <span style="color: var(--accent-gold);">*</span></label>
+                <input 
+                  type="text" 
+                  id="message-subject" 
+                  name="subject" 
+                  class="form-input" 
+                  placeholder="e.g. Activity Collaboration" 
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="user-message" class="form-label">Message <span style="color: var(--accent-gold);">*</span></label>
+                <textarea 
+                  id="user-message" 
+                  name="message" 
+                  class="form-input" 
+                  rows="6" 
+                  placeholder="Type your message here..." 
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <span>Send Message</span>
+                <span class="arrow" aria-hidden="true">&rarr;</span>
+              </button>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       SITE FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p class="footer-copyright">
+        &copy; 2026 Jhared Pantilo Mabuti &bull; BSIT 1st Year, Mindoro State University Calapan Campus.
+      </p>
+      <ul class="footer-links">
+        <li><a href="index.html" class="footer-link">Home</a></li>
+        <li><a href="about.html" class="footer-link">About</a></li>
+        <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+        <li><a href="contact.html" class="footer-link">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

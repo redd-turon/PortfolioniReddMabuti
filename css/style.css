@@ -1,0 +1,1239 @@
+/* ==========================================================================
+   COZY DARK ACADEMIA & AUTUMN ESPRESSO THEME (style.css)
+   Aesthetic: Velvet Burgundy, Roasted Espresso, Warm Amber & Golden Gradients
+   Features: Ambient Lighting, Text Motion, Smooth Blending & Realistic Depth
+   Created for: Jhared Pantilo Mabuti — Online Portfolio (BSIT 1st Year)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS CUSTOM PROPERTIES / DESIGN TOKENS
+   -------------------------------------------------------------------------- */
+:root {
+  /* Rich Gradients & Color Tokens */
+  --primary-color: #942939;          /* Deep Burgundy / Wine */
+  --primary-hover: #b03548;          /* Vibrant Bordeaux */
+  --primary-gradient: linear-gradient(135deg, #a43042 0%, #6f1b28 100%);
+  --primary-gradient-hover: linear-gradient(135deg, #bc384d 0%, #872232 100%);
+  --primary-light: rgba(148, 41, 57, 0.22);
+  
+  --accent-gold: #d4a373;            /* Warm Caramel / Vintage Brass */
+  --accent-gold-hover: #e8bf95;      /* Lighter Amber Glow */
+  --gold-gradient: linear-gradient(120deg, #d4a373 0%, #fff1df 40%, #d4a373 70%, #e6b98d 100%);
+  --accent-gold-light: rgba(212, 163, 115, 0.14);
+  
+  --text-main: #fbf7f0;              /* Warm Cream Parchment */
+  --text-muted: #cdbfb2;             /* Soft Warm Latte Gray */
+  --text-light: #948377;             /* Muted Roasted Bean */
+  
+  /* Realistic Deep Gradients for Background & Surfaces */
+  --bg-body: #0d080a;                /* Deep Roasted Espresso Noir */
+  --bg-surface: rgba(28, 17, 21, 0.88);
+  --bg-surface-elevated: rgba(38, 23, 29, 0.92);
+  --bg-subtle: rgba(45, 28, 35, 0.75);
+  
+  --card-gradient: linear-gradient(145deg, rgba(34, 20, 25, 0.9) 0%, rgba(18, 11, 14, 0.96) 100%);
+  --card-gradient-hover: linear-gradient(145deg, rgba(46, 27, 34, 0.95) 0%, rgba(26, 15, 20, 0.98) 100%);
+  
+  --border-color: rgba(212, 163, 115, 0.18);
+  --border-hover: rgba(212, 163, 115, 0.45);
+  
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --line-height-base: 1.65;
+  --line-height-heading: 1.25;
+
+  /* Spacing Tokens */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1.25rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3.5rem;
+
+  /* Radii & Curves */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+
+  /* Ambient Glow & Realistic Layered Shadows */
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-lg: 0 16px 36px -6px rgba(0, 0, 0, 0.65), 0 0 20px rgba(212, 163, 115, 0.08);
+  --shadow-hover: 0 22px 42px -6px rgba(148, 41, 57, 0.4), 0 0 24px rgba(212, 163, 115, 0.22);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET, BASE TYPOGRAPHY & REALISTIC AMBIENT LIGHTING
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: var(--line-height-base);
+  color: var(--text-main);
+  background-color: var(--bg-body);
+  /* Blended realistic lighting: warm burgundy radial glow + subtle amber light */
+  background-image: 
+    radial-gradient(circle at 12% 18%, rgba(148, 41, 57, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 88% 75%, rgba(212, 163, 115, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 50% 40%, rgba(55, 28, 36, 0.25) 0%, transparent 65%),
+    radial-gradient(rgba(212, 163, 115, 0.07) 1.2px, transparent 1.2px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings with Editorial Serif styling */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--text-main);
+  line-height: var(--line-height-heading);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--spacing-sm);
+  transition: color var(--transition-fast), transform var(--transition-smooth);
+}
+
+h1 { font-size: 2.85rem; letter-spacing: -0.02em; }
+h2 { font-size: 2.15rem; }
+h3 { font-size: 1.45rem; }
+h4 { font-size: 1.15rem; }
+
+p {
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.7;
+}
+
+a {
+  color: var(--accent-gold);
+  text-decoration: none;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+a:hover, a:focus-visible {
+  color: var(--accent-gold-hover);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   3. LAYOUT UTILITIES & CONTAINERS
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+.section {
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto var(--spacing-xl) auto;
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.section-header .subtitle {
+  color: var(--accent-gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  margin-bottom: var(--spacing-xs);
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(212, 163, 115, 0.18), rgba(148, 41, 57, 0.18));
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(212, 163, 115, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition-fast);
+}
+
+.section-header .subtitle:hover {
+  transform: translateY(-2px);
+}
+
+.section-header h1,
+.section-header h2 {
+  margin-top: 0.5rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.section-header p {
+  font-size: 1.05rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. HEADER & NAVIGATION BAR (Frosted Glassmorphism with Smooth Blur)
+   -------------------------------------------------------------------------- */
+.site-header {
+  background: linear-gradient(180deg, rgba(22, 13, 16, 0.92) 0%, rgba(14, 8, 10, 0.85) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: all var(--transition-fast);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.02em;
+  transition: transform var(--transition-fast);
+}
+
+.brand-logo:hover {
+  transform: scale(1.02);
+}
+
+.brand-logo .logo-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--primary-color), #50131e);
+  border: 1.5px solid var(--accent-gold);
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-weight: 800;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 12px rgba(148, 41, 57, 0.35);
+  transition: transform var(--transition-bounce), box-shadow 0.3s ease;
+}
+
+.brand-logo:hover .logo-icon {
+  transform: rotate(6deg) scale(1.1);
+  box-shadow: 0 6px 18px rgba(212, 163, 115, 0.4);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+/* Nav Link with Golden Slide-In Underline */
+.nav-link {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-gold), var(--primary-color));
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-50%);
+  border-radius: var(--radius-full);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: calc(100% - 1.5rem);
+}
+
+.nav-link:hover {
+  color: var(--text-main);
+  background: rgba(212, 163, 115, 0.1);
+  transform: translateY(-1px);
+}
+
+.nav-link.active {
+  color: var(--accent-gold);
+  background: linear-gradient(135deg, rgba(148, 41, 57, 0.25), rgba(212, 163, 115, 0.15));
+  font-weight: 600;
+  border: 1px solid rgba(212, 163, 115, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   5. BUTTONS & INTERACTIVE LINKS (Gradient Shimmer & Glide)
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: 0.8rem 1.6rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.25s ease, 
+              background 0.25s ease,
+              border-color 0.2s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+.btn span[aria-hidden="true"],
+.btn .arrow {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn:hover span[aria-hidden="true"],
+.btn:hover .arrow {
+  transform: translateX(5px);
+}
+
+.btn-primary {
+  background: var(--primary-gradient);
+  color: #ffffff;
+  border: 1px solid rgba(212, 163, 115, 0.35);
+  box-shadow: 0 4px 16px rgba(148, 41, 57, 0.45);
+}
+
+.btn-primary:hover, .btn-primary:focus-visible {
+  background: var(--primary-gradient-hover);
+  color: #ffffff;
+  border-color: var(--accent-gold);
+  box-shadow: 0 8px 24px rgba(148, 41, 57, 0.6), 0 0 15px rgba(212, 163, 115, 0.25);
+}
+
+.btn-secondary {
+  background: linear-gradient(145deg, rgba(32, 19, 24, 0.9), rgba(18, 11, 14, 0.9));
+  color: var(--accent-gold);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover, .btn-secondary:focus-visible {
+  background: linear-gradient(145deg, rgba(45, 27, 33, 0.95), rgba(26, 15, 20, 0.95));
+  border-color: var(--accent-gold);
+  color: var(--accent-gold-hover);
+  box-shadow: 0 6px 18px rgba(212, 163, 115, 0.25);
+}
+
+.btn-sm {
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+}
+
+/* --------------------------------------------------------------------------
+   6. HERO SECTION (HOMEPAGE) WITH TEXT MOTION & SHIMMER
+   -------------------------------------------------------------------------- */
+.hero {
+  padding: var(--spacing-xl) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+}
+
+.hero-content {
+  flex: 1;
+}
+
+/* Moving tag with gentle entrance */
+.hero-tag {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: linear-gradient(135deg, rgba(148, 41, 57, 0.3), rgba(212, 163, 115, 0.18));
+  color: var(--accent-gold);
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  border: 1px solid rgba(212, 163, 115, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  animation: fadeInDown 0.7s ease-out both;
+  transition: transform var(--transition-fast);
+}
+
+.hero-tag:hover {
+  transform: translateY(-2px);
+}
+
+/* Moving Shimmer Text on Hero Title */
+.hero-title {
+  font-size: 3.25rem;
+  margin-bottom: var(--spacing-sm);
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.hero-title .highlight {
+  background: var(--gold-gradient);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-style: italic;
+  display: inline-block;
+  animation: textShimmer 4s ease-in-out infinite alternate;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.5;
+  font-weight: 500;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.hero-bio {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-lg);
+  max-width: 580px;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+.hero-image-wrapper {
+  flex: 0 0 380px;
+  display: flex;
+  justify-content: center;
+  animation: fadeInRight 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+/* Aesthetic Frame Card with Smooth Gentle Float Animation */
+.profile-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: 10px;
+  background: linear-gradient(135deg, rgba(148, 41, 57, 0.35) 0%, rgba(212, 163, 115, 0.25) 100%);
+  border: 1.5px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  animation: gentleFloat 6s ease-in-out infinite alternate;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-hover);
+  animation-play-state: paused;
+}
+
+.profile-img {
+  border-radius: calc(var(--radius-lg) - 4px);
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center 20%;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+  filter: contrast(1.03) brightness(0.98);
+}
+
+/* Pulsing Badge on Profile */
+.experience-badge {
+  position: absolute;
+  bottom: 24px;
+  left: -15px;
+  background: linear-gradient(135deg, rgba(24, 14, 18, 0.95), rgba(42, 24, 30, 0.95));
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--accent-gold);
+  padding: 0.65rem 1.15rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.experience-badge:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+
+.experience-badge span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+.experience-badge strong {
+  color: var(--accent-gold);
+  font-size: 0.92rem;
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent-gold);
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.pulse-dot::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: rgba(212, 163, 115, 0.6);
+  animation: pulseRing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* --------------------------------------------------------------------------
+   7. CORE COMPETENCIES / FEATURE CARDS (Smooth Gradients & Text Hover Glide)
+   -------------------------------------------------------------------------- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.feature-card {
+  background: var(--card-gradient);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.35s ease, 
+              border-color 0.3s ease, 
+              background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-gold));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  background: var(--card-gradient-hover);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-hover);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-icon {
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(135deg, rgba(148, 41, 57, 0.35), rgba(212, 163, 115, 0.2));
+  border: 1px solid rgba(212, 163, 115, 0.25);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--accent-gold);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.15) rotate(-6deg);
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-gold));
+  color: #ffffff;
+}
+
+/* Text Hover Movement */
+.feature-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-xs);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.feature-card:hover h3 {
+  transform: translateX(4px);
+  color: var(--accent-gold);
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. ABOUT PAGE: BIOGRAPHY & TIMELINE (Realistic Gradients)
+   -------------------------------------------------------------------------- */
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr;
+  gap: var(--spacing-lg);
+  align-items: start;
+}
+
+.bio-card {
+  background: var(--card-gradient);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.bio-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-hover);
+}
+
+.bio-card h2 {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.bio-card:hover h2 {
+  transform: translateX(4px);
+  color: var(--accent-gold);
+}
+
+.quick-facts {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.quick-facts li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0.95rem;
+  background: rgba(13, 8, 10, 0.6);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(212, 163, 115, 0.12);
+  font-size: 0.92rem;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.quick-facts li:hover {
+  transform: translateX(5px);
+  border-color: var(--accent-gold);
+  background: rgba(212, 163, 115, 0.08);
+}
+
+.quick-facts li strong {
+  color: var(--accent-gold);
+}
+
+.quick-facts li span {
+  color: var(--text-main);
+  text-align: right;
+}
+
+/* Aesthetic Study Mood Card */
+.study-vibe-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1.5px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.study-vibe-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-hover);
+}
+
+.study-vibe-card img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.study-vibe-card:hover img {
+  transform: scale(1.04);
+}
+
+.study-vibe-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.25rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(13, 8, 10, 0.92) 80%);
+  color: var(--text-main);
+  font-size: 0.92rem;
+}
+
+.study-vibe-caption strong {
+  color: var(--accent-gold);
+  display: block;
+  font-size: 1rem;
+}
+
+/* Education Timeline */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: var(--spacing-lg) auto 0 auto;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 6px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--primary-color), var(--accent-gold), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--spacing-lg);
+  transition: transform 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: translateX(6px);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  border: 3px solid var(--bg-body);
+  box-shadow: 0 0 10px var(--accent-gold);
+}
+
+.timeline-card {
+  background: var(--card-gradient);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover .timeline-card {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.timeline-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+  color: var(--accent-gold);
+}
+
+.timeline-card .timeline-date {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   9. PORTFOLIO PAGE: PROJECT GALLERY (Gradient Cards & Text Shimmer)
+   -------------------------------------------------------------------------- */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.project-card {
+  background: var(--card-gradient);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.35s ease, 
+              border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-hover);
+}
+
+.project-media {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: #1a1014;
+}
+
+.project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .project-media img {
+  transform: scale(1.06);
+}
+
+.project-category-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: linear-gradient(135deg, rgba(20, 12, 15, 0.92), rgba(45, 25, 32, 0.92));
+  backdrop-filter: blur(8px);
+  color: var(--accent-gold);
+  border: 1px solid rgba(212, 163, 115, 0.3);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-full);
+}
+
+.project-body {
+  padding: var(--spacing-lg);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-title {
+  font-size: 1.35rem;
+  margin-bottom: var(--spacing-xs);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.project-card:hover .project-title {
+  transform: translateX(4px);
+  color: var(--accent-gold);
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-md);
+  flex: 1;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+.tech-tag {
+  background: linear-gradient(135deg, rgba(148, 41, 57, 0.25), rgba(212, 163, 115, 0.15));
+  color: var(--accent-gold);
+  border: 1px solid rgba(212, 163, 115, 0.22);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.tech-tag:hover {
+  transform: translateY(-2px);
+  background: var(--accent-gold);
+  color: var(--bg-body);
+}
+
+.project-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: auto;
+}
+
+/* --------------------------------------------------------------------------
+   10. CONTACT PAGE: DETAILS & FORM (Realistic Inset Lighting)
+   -------------------------------------------------------------------------- */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+.contact-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.contact-info-card {
+  background: var(--card-gradient);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-info-card:hover {
+  transform: translateX(6px);
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, rgba(148, 41, 57, 0.35), rgba(212, 163, 115, 0.2));
+  border: 1px solid rgba(212, 163, 115, 0.25);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  color: var(--accent-gold);
+  transition: transform 0.3s ease;
+}
+
+.contact-info-card:hover .contact-icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.contact-card-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-info-card:hover .contact-card-content h4 {
+  transform: translateX(3px);
+  color: var(--accent-gold);
+}
+
+.contact-card-content p {
+  font-size: 0.92rem;
+  margin-bottom: 0;
+}
+
+/* Contact Form Card */
+.contact-form-wrapper {
+  background: var(--card-gradient);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-gold), var(--primary-color));
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: var(--text-main);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: rgba(13, 8, 10, 0.7);
+  border: 1px solid rgba(212, 163, 115, 0.22);
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  background: rgba(18, 11, 14, 0.95);
+  box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.25);
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 130px;
+}
+
+/* --------------------------------------------------------------------------
+   11. SITE FOOTER
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: linear-gradient(180deg, rgba(14, 8, 10, 0.8) 0%, rgba(8, 4, 6, 0.95) 100%);
+  border-top: 1px solid var(--border-color);
+  padding: var(--spacing-lg) 0;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.footer-copyright {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+.footer-links {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-md);
+}
+
+.footer-link {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: var(--accent-gold);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   12. KEYFRAME ANIMATIONS (Text Motion, Shimmer & Light Pulses)
+   -------------------------------------------------------------------------- */
+@keyframes textShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gentleFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-7px) rotate(0.6deg);
+  }
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   13. RESPONSIVE DESIGN (MEDIA QUERIES)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-lg);
+  }
+
+  .hero-bio {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: var(--spacing-sm) 0;
+    gap: var(--spacing-sm);
+  }
+
+  .hero-title {
+    font-size: 2.3rem;
+  }
+
+  .hero-image-wrapper {
+    flex: 0 0 100%;
+    max-width: 320px;
+  }
+
+  .profile-img {
+    height: 360px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
